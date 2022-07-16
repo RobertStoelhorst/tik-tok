@@ -1,0 +1,42 @@
+.video {
+  position: relative;
+  background-color: whitesmoke;
+  width: 100%;
+  height: 100%;
+  scroll-snap-align: start;
+
+  /* the below line of code was for the left and right inset 
+  shadow and is good in some situations but had I an index problem 
+  for overlaying the video div I eventually got it working when i 
+  created a new div and nested the video div 
+  but then lost the scrolling  */
+
+  /* box-shadow: inset 24px 0px 20px -20px #2a2a2a,
+    inset -24px 0px 20px -20px rgb(42, 42, 42); */
+}
+
+/* .video:before {
+  box-shadow: inset 24px 0px 20px -20px rgb(54, 54, 54);
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.video:after {
+  box-shadow: inset -24px 0px 20px -20px rgb(54, 54, 54);
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+} */
+
+.video_player {
+  object-fit: fill;
+  width: 100%;
+  height: 100%;
+}
