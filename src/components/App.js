@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Video from "./Video";
-import db from "./firebase";
+import ScreenControls from "./ScreenControls";
+import db from "../firebase";
 import {
   getFirestore,
   collection,
@@ -8,14 +9,14 @@ import {
   getDocs,
   doc,
 } from "firebase/firestore";
-import "./App.css";
+import "../App.css";
 
 const App = () => {
   const [videos, setVideos] = useState([]);
 
   const getData = async () => {
     const colRef = collection(db, "videos");
-    console.log(colRef);
+    // console.log(colRef);
     const docsSnap = await getDocs(colRef);
     docsSnap.forEach((doc) => {
       setVideos([doc.data()]);
@@ -26,12 +27,20 @@ const App = () => {
     getData();
   }, []);
 
-  console.log("VIDEOS", videos);
-
   return (
-    // BEM
     <div className="app">
-      <div className="app__videos">
+      <div className="app_videos">
+        <div className="menu_bar">
+          <ScreenControls />
+        </div>
+        <div className="camera">
+          <div className="lense1">
+            <div className="lense_eye1"></div>
+          </div>
+          <div className="lense2">
+            <div className="lense_eye2"></div>
+          </div>
+        </div>
         {videos.map(
           ({
             id,

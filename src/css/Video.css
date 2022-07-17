@@ -24,7 +24,6 @@
   top: 0;
   width: 100%;
 }
-
 .video:after {
   box-shadow: inset -24px 0px 20px -20px rgb(54, 54, 54);
   content: "";

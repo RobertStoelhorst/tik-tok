@@ -106,8 +106,8 @@ body {
   display: none;
 }
 
-Hide scrollbar for IE,
-Edge and Firefox .app_videos {
+/* Hide scrollbar for IE, Edge and Firefox */
+.app_videos {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
