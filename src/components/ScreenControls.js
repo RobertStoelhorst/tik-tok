@@ -6,12 +6,10 @@ import "../css/ScreenControls.css";
 
 function ScreenControls() {
   return (
-    <div>
-      <div className="screenControls">
-        <MenuIcon fontSize="small" className="menu_button" />
-        <CropSquareIcon className="home_button" />
-        <ChevronLeftIcon className="chevron" />
-      </div>
+    <div className="screenControls">
+      <MenuIcon fontSize="small" className="menu_button" />
+      <CropSquareIcon className="home_button" />
+      <ChevronLeftIcon className="chevron" />
     </div>
   );
 }
