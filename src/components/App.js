@@ -18,6 +18,7 @@ const App = () => {
     const colRef = collection(db, "videos");
     // console.log(colRef);
     const docsSnap = await getDocs(colRef);
+    // console.log(docsSnap.docs);
     setVideos(docsSnap.docs.map((doc) => doc.data()));
   };
 
