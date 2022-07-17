@@ -1,32 +1,22 @@
 import React, { useState, useEffect } from "react";
 import Video from "./Video";
 import db from "./firebase";
-import {
-  collection,
-  getDocs,
-  query,
-  onSnapshot,
-  doc,
-} from "firebase/firestore";
+import { collection, doc, setDoc, getDoc } from "firebase/firestore";
 import "./App.css";
 
 function App() {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
-    const querySnapshot = query(collection(db, "videos"));
-    console.log(querySnapshot.collection(db, "videos"));
-    // q.docs.map((doc) => {
-    //   console.log(`${doc.id} => ${doc.data()}`);
-    // });
-    // const q = query(collection(db, "videos"));
-    // console.log(q);
-    // const unsub = onSnapshot(q, (querySnapshot) => {
-    // console.log(
-    //   "Data",
-    //   querySnapshot.docs.map((d) => doc.data())
-    // );
-    // });
+    const docRef = doc(db, "videos");
+    const docSnap = getDoc(docRef);
+    if (docSnap.exists()) {
+      console.log("Document data:", docSnap.data());
+    } else {
+      // doc.data() will be undefined in this case
+      console.log("No such document!");
+    }
+    // setVideos(q.collection.map((doc) => doc.data()));
   }, []);
 
   return (
