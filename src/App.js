@@ -33,8 +33,18 @@ const App = () => {
     <div className="app">
       <div className="app__videos">
         {videos.map(
-          ({ url, channel, description, song, likes, messages, shares }) => (
+          ({
+            id,
+            url,
+            channel,
+            description,
+            song,
+            likes,
+            messages,
+            shares,
+          }) => (
             <Video
+              key={id}
               url={url}
               channel={channel}
               song={song}
