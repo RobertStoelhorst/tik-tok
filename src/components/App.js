@@ -18,14 +18,14 @@ const App = () => {
     const colRef = collection(db, "videos");
     // console.log(colRef);
     const docsSnap = await getDocs(colRef);
-    docsSnap.forEach((doc) => {
-      setVideos([doc.data()]);
-    });
+    setVideos(docsSnap.docs.map((doc) => doc.data()));
   };
 
   useEffect(() => {
     getData();
   }, []);
+
+  console.log(videos);
 
   return (
     <div className="app">
