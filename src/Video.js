@@ -1,8 +1,7 @@
 import React, { useRef, useState } from "react";
 import VideoFooter from "./VideoFooter";
 import VideoSidebar from "./VideoSidebar";
-
-import "../css/Video.css";
+import "./Video.css";
 
 function Video({ url, channel, description, song, likes, messages, shares }) {
   const [playing, setPlaying] = useState(false);
@@ -21,8 +20,8 @@ function Video({ url, channel, description, song, likes, messages, shares }) {
   return (
     <div className="video">
       <video
-        className="video_player"
-        // loop
+        className="video__player"
+        loop
         onClick={onVideoPress}
         ref={videoRef}
         src={url}
