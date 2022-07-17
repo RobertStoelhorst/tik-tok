@@ -2,7 +2,7 @@
 
 ## App Hosted@Firebase
 
-### Click Here :arrow_right: :fire: https://tik-tok-in-react.web.app/ :fire: :arrow_left:
+### Click Here :arrow_right: :fire: https://tik-tok-9b0d5.web.app/ :fire: :arrow_left:
 
 ### also check mobile view in the developer tools
 
