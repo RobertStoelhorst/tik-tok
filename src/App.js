@@ -1,23 +1,32 @@
 import React, { useState, useEffect } from "react";
 import Video from "./Video";
 import db from "./firebase";
-import { collection, doc, setDoc, getDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  collection,
+  query,
+  getDocs,
+  doc,
+} from "firebase/firestore";
 import "./App.css";
 
-function App() {
+const App = () => {
   const [videos, setVideos] = useState([]);
 
+  const getData = async () => {
+    const colRef = collection(db, "videos");
+    console.log(colRef);
+    const docsSnap = await getDocs(colRef);
+    docsSnap.forEach((doc) => {
+      setVideos([doc.data()]);
+    });
+  };
+
   useEffect(() => {
-    const docRef = doc(db, "videos");
-    const docSnap = getDoc(docRef);
-    if (docSnap.exists()) {
-      console.log("Document data:", docSnap.data());
-    } else {
-      // doc.data() will be undefined in this case
-      console.log("No such document!");
-    }
-    // setVideos(q.collection.map((doc) => doc.data()));
+    getData();
   }, []);
+
+  console.log("VIDEOS", videos);
 
   return (
     // BEM
@@ -39,6 +48,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;
